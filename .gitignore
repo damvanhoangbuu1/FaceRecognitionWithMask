@@ -1,5 +1,0 @@
-/core/image_cropper/__pycache__/*.pyc
-/core/image_cropper/arcface_cropper/__pycache__/*.pyc
-/core/model_handler/__pycache__/*.pyc
-/core/model_handler/face_alignment/__pycache__/*.pyc
-/core/model_handler/face_detection/__pycache__/*.pyc
