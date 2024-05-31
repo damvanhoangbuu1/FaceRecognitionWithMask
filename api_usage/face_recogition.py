@@ -17,8 +17,8 @@ from core.image_cropper.arcface_cropper.FaceRecImageCropper import FaceRecImageC
 from core.model_loader.face_recognition.FaceRecModelLoader import FaceRecModelLoader
 from core.model_handler.face_recognition.FaceRecModelHandler import FaceRecModelHandler
 
-with open('config/model_conf.yaml') as f:
-    model_conf = yaml.load(f)
+with open('config/model_conf.yaml', 'r') as f:
+    model_conf = yaml.safe_load(f)
 
 if __name__ == '__main__':
     # common setting for all models, need not modify.
