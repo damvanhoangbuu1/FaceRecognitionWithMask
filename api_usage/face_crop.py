@@ -26,4 +26,4 @@ if __name__ == '__main__':
     image = cv2.imread(image_path)
     cropped_image = face_cropper.crop_image_by_mat(image, landmarks)
     cv2.imwrite('api_usage/temp/test1_cropped.jpg', cropped_image)
-    logger.info('Crop image successful!')
+    print('Crop image successful!')

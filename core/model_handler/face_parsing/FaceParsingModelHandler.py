@@ -1,15 +1,4 @@
-"""
-@author: fengyu, wangjun
-@date: 20220620
-@contact: fengyu_cnyc@163.com
-"""
-
-# based on:
-# https://github.com/FacePerceiver/facer/blob/main/facer/face_parsing/farl.py
 import functools
-import logging.config
-logging.config.fileConfig("config/logging.conf")
-logger = logging.getLogger('sdk')
 
 import torch
 import torch.nn.functional as F
@@ -49,7 +38,7 @@ class FaceParsingModelHandler(BaseModelHandler):
             A dict, {'rects','points','scores','image_ids'} 
         """
         if not isinstance(image, np.ndarray):
-            logger.error('The input should be the ndarray read by cv2!')
+            print('The input should be the ndarray read by cv2!')
             raise InputError()
         img = np.float32(image)
         img = img.transpose(2, 0, 1)

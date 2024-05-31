@@ -37,48 +37,48 @@ if __name__ == '__main__':
     scene = 'non-mask'
     model_category = 'face_detection'
     model_name =  model_conf[scene][model_category]
-    logger.info('Start to load the face detection model...')
+    print('Start to load the face detection model...')
     try:
         faceDetModelLoader = FaceDetModelLoader(model_path, model_category, model_name)
         model, cfg = faceDetModelLoader.load_model()
         faceDetModelHandler = FaceDetModelHandler(model, 'cuda:0', cfg)
     except Exception as e:
-        logger.error('Falied to load face detection Model.')
-        logger.error(e)
+        print('Falied to load face detection Model.')
+        print(e)
         sys.exit(-1)
     else:
-        logger.info('Success!')
+        print('Success!')
 
     # face landmark model setting.
     model_category = 'face_alignment'
     model_name =  model_conf[scene][model_category]
-    logger.info('Start to load the face landmark model...')
+    print('Start to load the face landmark model...')
     try:
         faceAlignModelLoader = FaceAlignModelLoader(model_path, model_category, model_name)
         model, cfg = faceAlignModelLoader.load_model()
         faceAlignModelHandler = FaceAlignModelHandler(model, 'cuda:0', cfg)
     except Exception as e:
-        logger.error('Failed to load face landmark model.')
-        logger.error(e)
+        print('Failed to load face landmark model.')
+        print(e)
         sys.exit(-1)
     else:
-        logger.info('Success!')        
+        print('Success!')        
         
     # face parsing model setting.
     scene = 'non-mask'
     model_category = 'face_parsing'
     model_name =  model_conf[scene][model_category]
-    logger.info('Start to load the face parsing model...')
+    print('Start to load the face parsing model...')
     try:
         faceParsingModelLoader = FaceParsingModelLoader(model_path, model_category, model_name)
         model, cfg = faceParsingModelLoader.load_model()
         faceParsingModelHandler = FaceParsingModelHandler(model, 'cuda:0', cfg)
     except Exception as e:
-        logger.error('Falied to load face parsing Model.')
-        logger.error(e)
+        print('Falied to load face parsing Model.')
+        print(e)
         sys.exit(-1)
     else:
-        logger.info('Success!')
+        print('Success!')
 
 
 
@@ -107,8 +107,8 @@ if __name__ == '__main__':
             show_bchw(draw_bchw(image, faces))  
             
     except Exception as e:
-        logger.error('Parsing failed!')
-        logger.error(e)
+        print('Parsing failed!')
+        print(e)
         sys.exit(-1)
     else:
-        logger.info('Success!')
+        print('Success!')

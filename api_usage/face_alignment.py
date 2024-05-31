@@ -27,25 +27,25 @@ if __name__ == '__main__':
     model_category = 'face_alignment'
     model_name =  model_conf[scene][model_category]
 
-    logger.info('Start to load the face landmark model...')
+    print('Start to load the face landmark model...')
     # load model
     try:
         faceAlignModelLoader = FaceAlignModelLoader(model_path, model_category, model_name)
     except Exception as e:
-        logger.error('Failed to parse model configuration file!')
-        logger.error(e)
+        print('Failed to parse model configuration file!')
+        print(e)
         sys.exit(-1)
     else:
-        logger.info('Successfully parsed the model configuration file model_meta.json!')
+        print('Successfully parsed the model configuration file model_meta.json!')
 
     try:
         model, cfg = faceAlignModelLoader.load_model()
     except Exception as e:
-        logger.error('Model loading failed!')
-        logger.error(e)
+        print('Model loading failed!')
+        print(e)
         sys.exit(-1)
     else:
-        logger.info('Successfully loaded the face landmark model!')
+        print('Successfully loaded the face landmark model!')
 
     faceAlignModelHandler = FaceAlignModelHandler(model, 'cuda:0', cfg)
 
@@ -71,8 +71,8 @@ if __name__ == '__main__':
                     fd.write(line)
             cv2.imwrite(save_path_img, image_show)
     except Exception as e:
-        logger.error('Face landmark failed!')
-        logger.error(e)
+        print('Face landmark failed!')
+        print(e)
         sys.exit(-1)
     else:
-        logger.info('Successful face landmark!')
+        print('Successful face landmark!')
